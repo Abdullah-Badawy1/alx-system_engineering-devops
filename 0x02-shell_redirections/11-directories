@@ -1,14 +1,2 @@
 #!/bin/bash
-
-count=0
-
-# Iterate through all directories and sub-directories (including hidden ones)
-find . -type d -not -path '*/\.*' | while read -r dir; do
-    # Exclude current directory and parent directory
-    if [[ "$dir" != "." && "$dir" != ".." ]]; then
-        ((count++))
-    fi
-done
-
-echo "$count"
-
+find . -type d ! -path . -print | wc -1 
