@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Bash script that displays numbers from 1 to 20 and provides specific messages at certain iterations.
+
+# Loop counter starting from 1
+i=1
+
+# Loop to display numbers from 1 to 20
+while [ $i -le 20 ]
+do
+  # Display the current number
+  echo "$i"
+
+  # Check for specific iterations and display corresponding messages using the case statement
+  case $i in
+    "4") echo "bad luck from China";;   # Display message for the 4th iteration
+    "9") echo "bad luck from Japan";;   # Display message for the 9th iteration
+    "17") echo "bad luck from Italy";;  # Display message for the 17th iteration
+  esac
+
+  # Increment loop counter
+  (( i++ ))
+done
