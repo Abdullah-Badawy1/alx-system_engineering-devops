@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# This script manages the 'manage_my_process' program.
+# When started with 'start', it initiates the process and writes its PID to /var/run/my_process.pid.
+# When stopped with 'stop', it terminates the process using the stored PID and removes the PID file.
+# When restarted with 'restart', it stops the existing process, initiates a new one, and updates the PID file.
+# Usage: manage_my_process {start|stop|restart}
+
+if [ "${1}" == "start" ]
+then
+    # Start the process in the background, store its PID in a PID file, and display a message.
+    ./manage_my_process &
+    touch /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
+elif [ "${1}" == "stop" ]
+then
+    # Stop the process using the stored PID, display a message, and remove the PID file.
+    echo "manage_my_process stopped"
+    kill "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
+elif [ "${1}" == "restart" ]
+then
+    # Restart the process by stopping the existing one, starting a new process, updating the PID file, and display a message.
+    kill "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
+    ./manage_my_process &
+    touch /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process restarted"
+else
+    # Display usage instructions if an invalid command is given.
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
+
