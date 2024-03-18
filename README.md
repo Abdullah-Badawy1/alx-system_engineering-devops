@@ -1,5 +1,1 @@
-# alx-system_engineering-devops
-alx-system_engineering-devops
-
-
- redme 
+this repo for devops project in the alx software Engineering
