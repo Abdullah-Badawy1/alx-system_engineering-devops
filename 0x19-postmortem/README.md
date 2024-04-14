@@ -49,6 +49,7 @@ Positive: The effective response of the Incident Management team in quickly iden
 
 ## Flowchart Diagram
 ![Simple Flowchart of the Incident](diagram.png)
+![Simple Flowchart of the Incident](diagram2.png)
 
 ## Appendices and Supporting Information
 - **Appendix A:** Database migration script review.
