@@ -16,10 +16,10 @@ def top_ten(subreddit: str) -> None:
         subreddit (str) -> The subreddit to query
     Returns: The top 10 hots for that subreddit
     """
-headers = {
-    'User-Agent': 'python:my_reddit_app:\
-        v1.0.0 (by /u/ZoneMediocre8550)'
-}
+    headers = {
+        "User-Agent": "Marvel's Agents of Shield/21",
+        "X-Forwared-For": "Phil J. Coulson"
+    }
 
     request_url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
 
